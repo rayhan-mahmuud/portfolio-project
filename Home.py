@@ -6,7 +6,7 @@ st.set_page_config(layout="wide")
 col1, col2 = st.columns([0.2, 0.8])
 
 with col1:
-    st.image("images/my_image.jpg")
+    st.image("images/my_image.jpg", width=230)
 
 with col2:
     st.title("Rayhan Mahmud")
@@ -25,12 +25,12 @@ st.write("---")
 
 df = pd.read_csv("data.csv")
 
-col3, empty_col, col4 = st.columns([0.4, 0.2, 0.4])
+col3,  col4 = st.columns(2)
 
 with col3:
     for index, row in df[:10].iterrows():
         st.header(row["title"])
-        st.image(f"images/{row['image']}", width=500)
+        st.image(f"images/{row['image']}", width=400)
         st.write(row["description"])
         st.write(f"[Source Code]({row['url']})")
         st.write("---")
@@ -38,7 +38,7 @@ with col3:
 with col4:
     for index, row in df[10:].iterrows():
         st.header(row["title"])
-        st.image(f"images/{row['image']}", width=500)
+        st.image(f"images/{row['image']}", width=400)
         st.write(row["description"])
         st.write(f"[Source Code]({row['url']})")
         st.write("---")
