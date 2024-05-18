@@ -1,8 +1,9 @@
 import streamlit as st
+import pandas as pd
 
 st.set_page_config(layout="wide")
 
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([0.2, 0.8])
 
 with col1:
     st.image("images/my_image.jpg")
@@ -14,8 +15,32 @@ with col2:
 
 Welcome to my portfolio website, where I showcase my Python projects. Here, you'll find a collection of my work that 
 highlights my journey in mastering Python and applying it to solve various challenges. I enjoy developing innovative 
-solutions and continuously pushing myself to improve my skills."""
-    st.write(content)
+solutions and continuously pushing myself to improve my skills.
 
-st.write("Feel free to explore my projects and see how I've combined my engineering background with my love for "
-         "coding. Thank you for visiting!")
+Feel free to explore my projects and see how I've combined my engineering background with my love for coding. Thank 
+you for visiting!"""
+
+    st.write(content)
+st.write("---")
+
+df = pd.read_csv("data.csv")
+
+col3, empty_col, col4 = st.columns([0.4, 0.2, 0.4])
+
+with col3:
+    for index, row in df[:10].iterrows():
+        st.header(row["title"])
+        st.image(f"images/{row['image']}", width=500)
+        st.write(row["description"])
+        st.write(f"[Source Code]({row['url']})")
+        st.write("---")
+
+with col4:
+    for index, row in df[10:].iterrows():
+        st.header(row["title"])
+        st.image(f"images/{row['image']}", width=500)
+        st.write(row["description"])
+        st.write(f"[Source Code]({row['url']})")
+        st.write("---")
+
+
