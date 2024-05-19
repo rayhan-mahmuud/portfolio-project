@@ -2,3 +2,4 @@
 
 ## List of projects:
 - Simple ToDo Application
+- Portfolio Web App

@@ -8,7 +8,7 @@ def send_email(massage):
     host = "smtp.gmail.com"
     port = 465
     mail = "appmailtester642@gmail.com"
-    password = os.getenv("Portfolio App PASSWORD")
+    password = os.getenv("PortfolioAppPASSWORD")
     receiver = "appmailtester642@gmail.com"
 
     context = ssl.create_default_context()
